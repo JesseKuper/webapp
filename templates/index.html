@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+
+
+{% block head %}
+<title>Jesse Kuiper</title>
+{% endblock %}
+
+
+
+{% block body %}
+<div class="content">
+    <h1>olah itsa me mario</h1>
+
+    <table>
+        <tr>
+            <th>tekst</th>
+            <th>tijjd</th>
+            <th>opties</th>
+        </tr>
+        {% for comments in commentss %}
+            <tr>
+                <td>{{ comments.content }}</td>
+                <td>{{ comments.date_created.date() }}</td>
+                <td>
+                    <a href="/delete/{{ comments.id }}">KAPOET</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <form action="/" method="POST">
+        <input type="text" name="content" id="content">
+        <input type="submit" value="toevoege!">
+    </form>
+</div>
+{% endblock %}
